@@ -88,7 +88,7 @@ help () {
   echo "Syntax: hotspot.sh command"
   echo "options:"
   echo "setup          Setup the access point for anew."
-  echo "up             Enable the access piont."
+  echo "up             Enable the access point."
   echo "down           Disable the access point."
   echo "status         Print the status of all interfaces."
   echo "enable_vpn     Enable a secure VPN connecton."
