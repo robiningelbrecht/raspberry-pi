@@ -6,6 +6,7 @@
 
 ```bash
 > sudo apt install git-all
+> git@github.com:robiningelbrecht/raspberry-pi.git .
 ```
 
 * Create a file `config.sh` and make sure it defines following variables
