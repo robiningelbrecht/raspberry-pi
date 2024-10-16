@@ -8,11 +8,19 @@
 > sudo apt install git-all
 ```
 
-* Make sure `config.sh` and `hotspot.sh` are in your home directory
-* Fill out the variables in `config.sh`
+* Create a file `config.sh` and make sure it defines following variables
+
+```bash
+#!/bin/bash
+
+SSID=""
+WIFI_PASSWORD=""
+WIREGUARD_CLIENT_NAME=""
+```
+
 * Navigate to https://account.proton.me/u/0/vpn/WireGuard and generate a WireGuard config
 * Copy the contents in a new file  `wireguard.conf`
-* Make sure `hotspot.sh` is executable, run
+* Make sure `hotspot.sh` is executable, run following command if it's not
 
 ```bash
 >  chmod +x hotspot.sh
