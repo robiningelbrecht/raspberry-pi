@@ -1,4 +1,4 @@
-# Configure PI as an access point over VPN
+# Configure PI as an Access Point over VPN
 
 ## Prerequisites
 
