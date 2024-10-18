@@ -2,9 +2,13 @@
 
 ## Prerequisites
 
+* Make sure your system is up to date and upgraded
 * Install git to pull and update this script
 
 ```bash
+> sudo apt-get update
+> sudo apt-get full-upgrade
+> sudo reboot
 > sudo apt install git-all
 > git clone git@github.com:robiningelbrecht/raspberry-pi.git .
 ```
