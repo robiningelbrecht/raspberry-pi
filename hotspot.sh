@@ -22,6 +22,11 @@ if [[ -z ${WIFI_PASSWORD} ]];  then
     exit 1;
 fi 
 
+if [[ -z ${WIFI_CHANNEL} ]];  then  
+    echo -e "${COLOR_RED}Variable WIFI_CHANNEL not set, make sure you configured it in config.sh  ${NC}" 
+    exit 1;
+fi 
+
 if [[ -z ${WIREGUARD_CLIENT_NAME} ]];  then  
     echo -e "${COLOR_RED}Variable WIREGUARD_CLIENT_NAME not set, make sure you configured it in config.sh  ${NC}" 
     exit 1;
