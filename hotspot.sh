@@ -54,7 +54,10 @@ hotspot_down () {
 hotspot_setup () {
     nmcli con delete hotspot
     nmcli connection add type wifi ifname wlan0 con-name hotspot autoconnect yes ssid "${SSID}"
-    nmcli connection modify hotspot 802-11-wireless.mode ap 802-11-wireless.band bg ipv4.method shared
+    nmcli connection modify hotspot 802-11-wireless.mode ap
+    nmcli connection modify hotspot 802-11-wireless.band bg
+    nmcli connection modify hotspot 802-11-wireless.channel ${WIFI_CHANNEL}
+    nmcli connection modify hotspot ipv4.method shared
     nmcli connection modify hotspot wifi-sec.key-mgmt wpa-psk
     nmcli connection modify hotspot wifi-sec.psk ${WIFI_PASSWORD}
     nmcli connection modify hotspot connection.autoconnect yes
