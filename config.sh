@@ -1,5 +1,0 @@
-#!/bin/bash
-
-SSID=""
-WIFI_PASSWORD=""
-WIREGUARD_CLIENT_NAME=""
