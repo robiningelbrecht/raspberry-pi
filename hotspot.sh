@@ -71,7 +71,7 @@ hotspot_setup () {
     nmcli connection up hotspot
 }
 
-vpn_enable () {
+vpn_up () {
   # Install and configure WireGuard
   pivpn add -n ${WIREGUARD_CLIENT_NAME}
   mkdir -p /etc/wireguard
@@ -85,7 +85,7 @@ vpn_enable () {
   systemctl daemon-reload
 }
 
-vpn_disable () {
+vpn_down () {
   pivpn remove ${WIREGUARD_CLIENT_NAME}
   # Remove WireGuard in systemd
   systemctl stop wg-quick@${WIREGUARD_CLIENT_NAME}
@@ -101,8 +101,8 @@ help () {
   echo "up             Enable the access point."
   echo "down           Disable the access point."
   echo "status         Print the status of all interfaces."
-  echo "enable_vpn     Enable a secure VPN connecton."
-  echo "diable_vpn     Disable active VPN connection."
+  echo "vpn_up         Enable a secure VPN connecton."
+  echo "vpn_down       Disable active VPN connection."
   echo "gui            Open network managemlent GUI editor."
   echo "help           Print this help."
   echo
@@ -132,13 +132,13 @@ if [ "$COMMAND" == "status" ]; then
   exit
 fi
 
-if [ "$COMMAND" == "enable_vpn" ]; then
-  vpn_enable
+if [ "$COMMAND" == "vpn_up" ]; then
+  vpn_up
   exit
 fi
 
-if [ "$COMMAND" == "disable_vpn" ]; then
-  vpn_disable
+if [ "$COMMAND" == "vpn_down" ]; then
+  vpn_down
   exit
 fi
 
