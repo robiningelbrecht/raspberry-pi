@@ -43,6 +43,10 @@ if [ $# -lt 1 ]; then
 fi
 
 # MAIN FUNCTIONS
+self_update () {
+  git pull
+}
+
 hotspot_status () {
   nmcli con show --active
   iw wlan0 get power_save
@@ -110,40 +114,52 @@ help () {
 
 # COMMANDS
 if [ "$COMMAND" == "setup" ]; then
-    hotspot_setup
-    hotspot_status
-    exit
+  self_update
+  hotspot_setup
+  hotspot_status
+  exit
 fi
 
 if [ "$COMMAND" == "up" ]; then
+  self_update
   hotspot_up
   hotspot_status
   exit
 fi
 
 if [ "$COMMAND" == "down" ]; then
+  self_update
   hotspot_down
   nmcli con show --active
   exit
 fi
 
 if [ "$COMMAND" == "status" ]; then
+  self_update
   hotspot_status
   exit
 fi
 
 if [ "$COMMAND" == "vpn_up" ]; then
+  self_update
   vpn_up
   exit
 fi
 
 if [ "$COMMAND" == "vpn_down" ]; then
+  self_update
   vpn_down
   exit
 fi
 
 if [ "$COMMAND" == "gui" ]; then
-  sudo nmtui
+  self_update
+  nmtui
+  exit
+fi
+
+if [ "$COMMAND" == "self_update" ]; then
+  self_update
   exit
 fi
 
