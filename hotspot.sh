@@ -45,6 +45,7 @@ fi
 # MAIN FUNCTIONS
 hotspot_status () {
   nmcli con show --active
+  iw wlan0 get power_save
   nmcli device wifi show-password
 }
 
@@ -66,6 +67,7 @@ hotspot_setup () {
     nmcli connection modify hotspot wifi-sec.key-mgmt wpa-psk
     nmcli connection modify hotspot wifi-sec.psk ${WIFI_PASSWORD}
     nmcli connection modify hotspot connection.autoconnect yes
+    sudo nmcli connection modify hotspot wifi.powersave disable
     nmcli connection up hotspot
 }
 
