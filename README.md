@@ -9,8 +9,16 @@
 > sudo apt-get update
 > sudo apt-get full-upgrade
 > sudo reboot
+> sudo apt install firmware-brcm80211 # installs WiFi chip update, if any
 > sudo apt install git-all
 > git clone git@github.com:robiningelbrecht/raspberry-pi.git .
+```
+
+* Set your timezone/location
+  
+```bash
+> sudo raspi-config
+# then 'Localisation Options' - then set your locale, timezone and WLAN country.
 ```
 
 * Create a file `config.sh` and make sure it defines following variables
