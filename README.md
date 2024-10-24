@@ -73,6 +73,15 @@ At this point the hotspot should be available for devices to connect to.
 * if you get an error saying something about `openresolv` , run `sudo apt install openresolv`
 * Run `sudo wg` to check status
 
+## Force DHCP to renew IP address
+
+```bash
+sudo dhclient -v -r eth0
+sudo dhclient -v eth0
+```
+
+You light need to restart your router to flush DNS cache
+
 ## Maintaining Your System
 
 ```bash
